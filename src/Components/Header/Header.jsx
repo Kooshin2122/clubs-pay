@@ -17,7 +17,7 @@ function Header() {
                     bgColor='bg-slate-100'
                 />
                 <AiOutlineSearch
-                    className='absolute top-7 left-9 text-xl text-blue-500' />
+                    className='absolute top-7 left-9 text-xl text-green-500' />
             </div>
             <div className="rightSide w-[50%] flex items-center justify-end">
                 <Avarter Icon={IoIosNotificationsOutline} margin='ml-3' />
@@ -35,7 +35,7 @@ export const Avarter = ({
     padding = 'p-3',
     text = 'text-5xl',
     bgColor = 'bg-slate-100',
-    textColor = 'text-blue-500',
+    textColor = 'text-green-500',
     margin = ''
 }) => {
     return (

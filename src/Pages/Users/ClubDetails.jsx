@@ -22,12 +22,11 @@ function ClubDetails() {
             <div className='w-[95%] m-auto'>
                 <h1 className='text-xl flex justify-between font-bold mt-2 px-3 border-b-2 pb-2'>
                     <p>Club Details Page</p>
-                    <Link to='/clubs' className='flex'>
+                    <Link to={`/clubs`} className='flex'>
                         back
                         <RiArrowGoBackLine className='text-2xl font-black ml-2' />
                     </Link>
                     <Outlet />
-
                 </h1>
             </div>
             <div className='w-[95%] h-fit min-h-full pb-8 m-auto bg-white shadow-md rounded mt-10'>
@@ -66,7 +65,7 @@ function ClubDetails() {
                     </div>
                 </div>
             </div>
-            <div className='w-[95%] h-fit m-auto mt-12  bg-slate-900/10 p-5 shadow-md rounded-md'>
+            <div className='w-[95%] h-fit m-auto mt-12  bg-blue-500/5 p-5 shadow-md rounded-md'>
                 <Table tableHead={tHeadValues} tableRow={trowValues} />
             </div>
         </div>

@@ -13,8 +13,8 @@ function Clubs() {
         <div className='w-[95%] m-auto'>
             <div className='mt-5 w-[95%] px-3 pb-2 m-auto mb-7 flex justify-between items-center border-b-2'>
                 <h1 className='text-xl font-bold'>Users Page</h1>
-                <Link to='/*' className=''>
-                    <p className='text-xl font-bold hover:text-blue-500'>Add new Club</p>
+                <Link to='clubRegister' className=''>
+                    <p className='text-xl font-bold hover:text-blue-500'>Add New Club</p>
                 </Link>
                 <Outlet />
             </div>

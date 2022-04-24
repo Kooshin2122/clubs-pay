@@ -88,7 +88,6 @@ function EventRegisterPage() {
                             padding='py-3 px-6'
                         />
                     </div>
-
                 </form>
             </div>
         </div >
@@ -105,20 +104,17 @@ const PopUpForm = () => {
         // Do something with the files
         const [file] = acceptedFiles
         setImage(file)
-        console.log('f', image);
     }, [])
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
 
     const postData = (e) => {
         postEvent(register)
-        setRegister({ title: '' })
         setOpenPopUpForm(false)
     }
 
     const putData = (e) => {
         putEvent(register, eventRegisterObject.id)
-        setEventRegisterObject({ title: '' })
         setOpenPopUpForm(false)
     }
 
@@ -140,9 +136,18 @@ const PopUpForm = () => {
                         <AiOutlineClose />
                     </p>
                 </div>
-                <div className='w-[95%] m-auto flex justify-between items-center mt-24'>
-                    <div className='w-[65%] flex justify-between max-h-[50vh] h-[50vh] bg-white shadow-md rounded-lg overflow-auto'>
-                        <div className='w-[50%] h-full flex justify-center items-center bg-slate-300'>
+                <div className='w-[95%] m-auto flex flex-col justify-between items-center mt-14'>
+
+                    <div
+                        {...getRootProps()}
+                        className='w-[70%] h-[40vh] bg-white shadow-md flex justify-center items-center  overflow-auto border-8 px-2 border-dashed border-blue-500'>
+                        <input {...getInputProps()} />
+                        {
+                            isDragActive ?
+                                <p>Drop the files here ... </p> :
+                                <p>Drag 'n' drop some files here, <br /> or click to select files</p>
+                        }
+                        <div className='w-[8%] absolute bottom-[43%] right-[30%]'>
                             <img
                                 src={image && URL.createObjectURL(image)}
                                 style={{ objectFit: "fill" }}
@@ -150,33 +155,6 @@ const PopUpForm = () => {
                                 className='h-full'
                             />
                         </div>
-                        <div className='w-[50%]'>
-                            <h1 className='w-[100%] text-center text-xl font-bold mt-3 mb-7'>
-                                Image Info
-                            </h1>
-                            <p className='w-[80%] m-auto flex justify-between items-center text-lg font-semibold'>
-                                <span> 1-Name</span>
-                                <span>Football</span>
-                            </p>
-                            <p className='w-[80%] m-auto flex justify-between items-center text-lg font-semibold'>
-                                <span> 1-Type</span>
-                                <span>png</span>
-                            </p>
-                            <p className='w-[80%] m-auto flex justify-between items-center text-lg font-semibold'>
-                                <span> 1-Size</span>
-                                <span>600x900</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div
-                        {...getRootProps()}
-                        className='w-[30%] h-[50vh] bg-white shadow-md flex justify-center items-center  overflow-auto border-2 px-2 border-dashed border-blue-500'>
-                        <input {...getInputProps()} />
-                        {
-                            isDragActive ?
-                                <p>Drop the files here ... </p> :
-                                <p>Drag 'n' drop some files here, <br /> or click to select files</p>
-                        }
                     </div>
 
                 </div>

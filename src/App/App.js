@@ -9,14 +9,14 @@ import LoginForm from '../Components/LoginForm/LoginForm'
 function App() {
     return (
         <ContextAPI>
-            {/* <LoginForm /> */}
-            <BrowserRouter>
+            <LoginForm />
+            {/* <BrowserRouter>
                 <div className='w-[100%] h-[100vh] overflow-auto bg-slate-50 text-slate-700'>
                     <Header />
                     <SideBar />
                     <MainView />
                 </div>
-            </BrowserRouter>
+            </BrowserRouter> */}
         </ContextAPI>
     )
 }

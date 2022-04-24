@@ -9,14 +9,14 @@ import PieChartPage from './Home-Components/Charts/PieChartPage';
 
 function Home() {
     const { summary, getSummaryDataFromTheServer } = useCustomHook()
+    const { events, clubs, students, totalPayment } = summary;
 
-    const { events, clubs, students, totalPayment } = summary
     useEffect(() => {
         getSummaryDataFromTheServer()
     }, [])
 
     return (
-        <div className='w-[98%] h-[50vh] m-auto'>
+        <div className='w-[98%] h-fit m-auto'>
             <h1 className='text-xl font-bold mt-2 border-b-2 px-3 pb-2'>Dashboard</h1>
             <div className="cards flex justify-around ">
                 <Card Icon={MdEventNote} Title={`${events} Events`} />

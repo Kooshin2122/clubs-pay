@@ -11,8 +11,6 @@ const SecurityProvider = ({ children }) => {
 
     useEffect(() => {
         // TODO request user by using cookies token.
-
-
     }, [])
 
     if (loading) {

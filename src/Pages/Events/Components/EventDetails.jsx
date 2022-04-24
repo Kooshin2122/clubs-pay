@@ -18,7 +18,6 @@ function EventDetails({ }) {
     const { eventData, setEventRegisterTitle, setEventRegisterObject, setVisible, deleteEvent } = useCustomHook();
     const [showChecker, setShowChecker] = useState(false)
     const [event] = useMemo(() => eventData.filter(data => data.id == eventId), [eventData])
-    console.log(event);
     const changeEventTitleAndSetValues = () => {
         setEventRegisterTitle(pre => pre = `Edit ${event?.title ?? 'Title'}`)
         setEventRegisterObject({ ...event })

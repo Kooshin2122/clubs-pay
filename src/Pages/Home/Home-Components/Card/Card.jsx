@@ -12,7 +12,7 @@ function Card({
     return (
         <div className='w-[22%] mt-5 h-fit shadow rounded-lg px-5 py-9 bg-white'>
             <div className='flex'>
-                <Icon className='bg-blue-200 text-blue-600 p-4 rounded-full text-6xl' />
+                <Icon className='bg-green-200 text-green-600 p-4 rounded-full text-6xl' />
                 <div className='ml-4'>
                     <span className='text-base font-black'>{Title}</span>
                     {

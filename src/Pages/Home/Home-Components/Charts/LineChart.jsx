@@ -22,7 +22,7 @@ function LineChart() {
                 enabled: false,
             },
             stroke: {
-                curve: "smooth",
+                curve: "smooth"
             },
             title: {
                 text: 'Events',
@@ -53,7 +53,7 @@ function LineChart() {
             <ReactApexChart
                 options={{ ...data.options }}
                 series={data.series}
-                type="line"
+                type="area"
                 height={450}
                 width={"100%"}
                 className='z-10'

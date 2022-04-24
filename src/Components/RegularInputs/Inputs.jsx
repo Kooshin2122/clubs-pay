@@ -4,6 +4,7 @@ function Inputs({
     type = 'text',
     placeHolder = 'placeHolder',
     value = '',
+    name = '',
     onchangeHandler = () => { },
     padding = 'py-2 px-4',
     bgColor = '',
@@ -16,6 +17,7 @@ function Inputs({
     return (
         <input
             type={type}
+            name={name}
             placeholder={placeHolder}
             onChange={onchangeHandler}
             value={value}

@@ -19,7 +19,7 @@ function SideBar() {
     }
 
     return (
-        <div className='w-[17%] h-[100vh] bg-blue-500 text-white text-center text-2xl absolute top-0 overflow-hidden py-2'>
+        <div className='w-[17%] h-[100vh] bg-green-500 text-white text-center text-2xl absolute top-0 overflow-hidden py-2'>
             <div className="sideHead">
                 <div className="logo-con flex items-center">
                     <span className='mb-1'>
@@ -36,15 +36,15 @@ function SideBar() {
             </div>
             <div className="sideBarBody text-white mt-7">
                 <nav>
-                    <NavLink to="/" className='flex items-center w-[100%] bg-slate-900/5  p-3 rounded-l-full font-bold mb-5'>
+                    <NavLink to="/" className='flex items-center w-[100%] bg-white/10 p-3 rounded-l-full font-bold mb-5'>
                         <AiOutlineHome className='mr-2' />
                         <span className='text-lg'>Dashboard</span>
                     </NavLink>
-                    <NavLink to="/events" className='flex items-center  w-[100%] bg-slate-900/5 p-3 rounded-l-full  font-bold mb-5'>
+                    <NavLink to="/events" className='flex items-center  w-[100%] bg-white/10 p-3 rounded-l-full  font-bold mb-5'>
                         <MdEventAvailable className='mr-2' />
                         <span className='text-lg'>Events</span>
                     </NavLink>
-                    <NavLink to="/clubs" className='flex items-center  w-[100%] bg-slate-900/5  p-3 rounded-l-full  font-bold mb-5'>
+                    <NavLink to="/clubs" className='flex items-center  w-[100%] bg-white/10 p-3 rounded-l-full  font-bold mb-5'>
                         <FiUsers className='mr-2' />
                         <span className='text-lg'>Clubs</span>
                     </NavLink>
@@ -52,7 +52,7 @@ function SideBar() {
                 <Outlet />
 
             </div>
-            <div className='h-fit bg-slate-900/10 mt-8'>
+            <div className='h-fit bg-white/10 mt-8'>
                 <h1 className='text-lg flex justify-between items-center font-bold text-left mb-1 w-[100%] bg-white/10 p-3 '>
                     Recents
                     {

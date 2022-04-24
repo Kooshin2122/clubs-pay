@@ -12,7 +12,6 @@ function PieChartPage() {
     const lebels = clubRegistaring.map(lebel => lebel.title)
     const totalStudents = clubRegistaring.map(student => student.totalStudents)
 
-    console.log('--', lebels);
 
     const state = {
         labels: lebels,

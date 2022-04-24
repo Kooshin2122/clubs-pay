@@ -14,30 +14,26 @@ function ClubLists({
 
     const tHeadValues = ['NO', 'TITLE', 'MEMBERS', 'TOTAL-PAYMENT', 'Date CREATED', 'MORE-DETAILS']
     const trowValues = [
-        [1, " Football", '12 clubs', '$3780', '25-03-2019', <Link to={`club/${clubsId}`}><MdOutlineReadMore className='p-2 text-4xl bg-green-500/40 ml-14 rounded-full cursor-pointer' /></Link>],
-        [1, " Football", '12 clubs', '$3780', '25-03-2019', <Link to={`club/${clubsId}`}><MdOutlineReadMore className='p-2 text-4xl bg-green-500/40 ml-14 rounded-full cursor-pointer' /></Link>],
-        [1, " Football", '12 clubs', '$3780', '25-03-2019', <Link to={`club/${clubsId}`}><MdOutlineReadMore className='p-2 text-4xl bg-green-500/40 ml-14 rounded-full cursor-pointer' /></Link>],
+        [1, " Football", '12 clubs', '$3780', '25-03-2019', <Link to={`club/1`}><MdOutlineReadMore className='p-2 text-4xl bg-green-500/40 ml-14 rounded-full cursor-pointer' /></Link>],
+        [1, " Football", '12 clubs', '$3780', '25-03-2019', <Link to={`club/2`}><MdOutlineReadMore className='p-2 text-4xl bg-green-500/40 ml-14 rounded-full cursor-pointer' /></Link>],
+        [1, " Football", '12 clubs', '$3780', '25-03-2019', <Link to={`club/3`}><MdOutlineReadMore className='p-2 text-4xl bg-green-500/40 ml-14 rounded-full cursor-pointer' /></Link>],
     ]
 
     return (
         <div className='w-[100%] h-fit mb-[20%] m-auto'>
             <div className='w-[95%] m-auto'>
                 <h1 className='text-xl flex justify-between font-bold mt-2 px-3 border-b-2 pb-2'>
-                    <p>Clubs</p>
-
-                    <Link to='/clubs' className='flex'>
-                        back
-                        <RiArrowGoBackLine className='text-2xl font-black ml-2' />
+                    <p>Clubs List</p>
+                    <Link to='clubListRegister' className='hover:text-blue-500 '>
+                        Add New Club
                     </Link>
                     <Outlet />
                 </h1>
             </div>
-            <div className='w-[95%] h-fit m-auto mt-12 bg-slate-900/10 p-5 shadow-md rounded-md'>
+            <div className='w-[95%] h-fit m-auto mt-12 bg-blue-500/5 p-5 shadow-md rounded-md'>
                 <Table tableHead={tHeadValues} tableRow={trowValues} />
             </div>
-
         </div>
-
     )
 }
 

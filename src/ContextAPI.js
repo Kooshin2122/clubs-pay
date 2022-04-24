@@ -52,13 +52,11 @@ function ContextAPI({ children }) {
 
     const postEvent = async (event = {}) => {
         const response = await apiRequest.post('/events', event)
-        console.log('response', response);
         setEventData({ ...eventData, response })
     }
 
     const putEvent = async (event = {}, eventId) => {
         const response = await apiRequest.put(`/events/${eventId}`, event)
-        console.log('response', response);
         const { id } = response.data
         setEventData(eventData.map(event => {
             return id === eventId ? { ...response.data } : event
@@ -66,7 +64,6 @@ function ContextAPI({ children }) {
     }
 
     const deleteEvent = async (Id) => {
-        console.log('id--', Id);
         await apiRequest.delete(`/events/${Id}`)
         const newEventData = eventData.filter(event => event.id !== Id)
         setEventData(newEventData)
