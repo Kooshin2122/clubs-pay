@@ -1,5 +1,6 @@
 import React from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
+import { IoMdClose } from 'react-icons/io'
 import { Link, Outlet, } from 'react-router-dom'
 
 function Checker({ children, id, clickHandler }) {
@@ -9,7 +10,8 @@ function Checker({ children, id, clickHandler }) {
                 <h1 className='w-[100%] text-xl flex justify-between font-bold  px-3 border-b-2 pb-2'>
                     <p>Check before you delete it</p>
                     <Link to='/events/' className='flex'>
-                        <AiOutlineClose className='text-2xl font-black ml-2' />
+                        <IoMdClose
+                            className='text-2xl font-black ml-2' />
                     </Link>
                     <Outlet />
                 </h1>

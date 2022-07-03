@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useParams } from 'react-router-dom'
 import ClubCards from './ClubCards';
 import { useCustomHook } from '../../ContextAPI';
+import { BeatLoader } from 'react-spinners'
 
 function Clubs() {
-    const { clubsData, setClubsData, getClubsDataFromTheServer, setLoading } = useCustomHook()
+    const { clubsData, setClubsData, getData, loading, setLoading } = useCustomHook()
     useEffect(async () => {
-        await getClubsDataFromTheServer()
-        setLoading(false)
+        await getData('/clubs', setClubsData)
+        setTimeout(() => { setLoading(false) }, 1000)
     }, [])
     return (
         <div className='w-[95%] m-auto'>
@@ -18,7 +19,13 @@ function Clubs() {
                 </Link>
                 <Outlet />
             </div>
-            <div className='w-[100%] h-fit flex flex-wrap m-auto mt-5  gap-9  rounded-t-xl'>
+            <div className='w-[100%] h-fit flex flex-wrap m-auto mt-5 ml-3 gap-12 rounded-t-xl'>
+                {
+                    loading &&
+                    <div className='absolute top-0 left-0 w-[83%] bg-slate-100 ml-[17%] h-screen flex justify-center items-center'>
+                        <BeatLoader loading color='rgb(59 130 246)' />
+                    </div>
+                }
                 {
                     clubsData.length ?
                         clubsData.map((value, index) => {

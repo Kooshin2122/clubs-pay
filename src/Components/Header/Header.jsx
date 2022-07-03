@@ -9,20 +9,9 @@ import Inputs from '../RegularInputs/Inputs';
 function Header() {
     return (
         <header className='header'>
-            <div className="leftSide w-[40%]">
-                <Inputs
-                    width={'w-[70%]'}
-                    padding={'py-2 pl-8'}
-                    placeHolder={'Search here....'}
-                    bgColor='bg-slate-100'
-                />
-                <AiOutlineSearch
-                    className='absolute top-7 left-9 text-xl text-green-500' />
-            </div>
-            <div className="rightSide w-[50%] flex items-center justify-end">
-                <Avarter Icon={IoIosNotificationsOutline} margin='ml-3' />
-                <Avarter Icon={AiOutlineSetting} margin='ml-3' />
+            <div className=" w-[100%] flex items-center justify-end gap-3">
                 <Avarter Icon={FaUserInjured} margin='ml-3' />
+                Abdirahman
             </div>
         </header>
     )

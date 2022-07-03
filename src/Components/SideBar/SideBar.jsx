@@ -7,6 +7,7 @@ import { Outlet, NavLink } from 'react-router-dom'
 import './SideBar.css'
 import { Avarter } from '../Header/Header';
 import { icons } from 'react-icons/lib';
+// import { Logo } from './img/Logo1.png'
 
 function SideBar() {
 
@@ -23,7 +24,7 @@ function SideBar() {
             <div className="sideHead">
                 <div className="logo-con flex items-center">
                     <span className='mb-1'>
-                        <img src="./img/Logo1.png" width='50px' alt="" />
+                        <img src={'./img/Logo1.png'} width='50px' alt="" />
                     </span>
                     <h1 className='text-lg text-slate-50 font-black ml-2 mt-2 text-left'>
                         Clubs-Pay

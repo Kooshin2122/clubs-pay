@@ -6,7 +6,7 @@ import apiRequest from '../../api-request';
 import { BeatLoader } from 'react-spinners'
 
 function Events() {
-    const { loading, setLoading, eventData, setEventRegisterTitle, getEventDataFromTheServer, setVisible, setRegister } = useCustomHook();
+    const { loading, setLoading, eventData, setEventData, setEventRegisterTitle, getData, setVisible, setRegister } = useCustomHook();
 
     const changeEventTitle = () => {
         setEventRegisterTitle(pre => pre = `New Event Registration`)
@@ -15,8 +15,8 @@ function Events() {
     }
 
     useEffect(async () => {
-        await getEventDataFromTheServer()
-        setLoading(false)
+        await getData('/events', setEventData)
+        setTimeout(() => { setLoading(false) }, 1000)
     }, [])
 
     return (

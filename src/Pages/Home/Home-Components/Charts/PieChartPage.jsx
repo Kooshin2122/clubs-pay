@@ -5,10 +5,11 @@ import { Chart } from 'react-chartjs-2'
 import { useCustomHook } from '../../../../ContextAPI'
 
 function PieChartPage() {
-    const { clubRegistaring, getClubRegistaringDataFromTheServer } = useCustomHook()
+    const { clubRegistaring, setClubRegistaring, getData } = useCustomHook()
     useEffect(() => {
-        getClubRegistaringDataFromTheServer()
+        getData('/clubRegistaring', setClubRegistaring)
     }, [])
+    
     const lebels = clubRegistaring.map(lebel => lebel.title)
     const totalStudents = clubRegistaring.map(student => student.totalStudents)
 

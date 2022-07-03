@@ -12,6 +12,7 @@ import { EditorState, convertToRaw, ContentState, convertFromHTML } from 'draft-
 import draftToHtml from 'draftjs-to-html'
 import htmlToDraft from 'html-to-draftjs'
 import ReactHtmlParser from 'react-html-parser';
+import TextFields from '../../../Components/RegularInputs/Inputs';
 
 function EventRegisterPage() {
 
@@ -61,16 +62,17 @@ function EventRegisterPage() {
                 </h1>
 
                 <form onSubmit={onSubmit}
-                    className='w-[90%] h-fit m-auto mt-10 px-10 py-7'>
+                    className='w-[90%] h-fit m-auto mt-10 px-10 py-7 flex flex-col gap-2'>
                     <p className='text-xl ml-1 font-semibold'>Event Name</p>
-                    <Inputs
+                    <TextFields
+                        label='Event title'
                         value={visible ? eventRegisterObject.title : title}
                         onchangeHandler={inputChangeHandler}
                         fontSize='text-xl mt-3 mb-5 '
                         bgColor='bg-slate-200'
                         placeHolder='Event Name'
                     />
-                    <p className='text-xl ml-1 mb-3 font-semibold'>Description</p>
+                    <p className='text-xl ml-1 mt-3 font-semibold'>Description</p>
                     <Editor
                         editorState={editorState}
                         onEditorStateChange={setEditorState}
@@ -96,7 +98,7 @@ function EventRegisterPage() {
 
 const PopUpForm = () => {
     const {
-        openPopUpForm, setOpenPopUpForm, visible, postEvent, putEvent,
+        openPopUpForm, setOpenPopUpForm, visible, eventData, setEventData, post, postEvent, putEvent,
         eventRegisterObject, setEventRegisterObject, register, setRegister
     } = useCustomHook();
     const [image, setImage] = useState()
@@ -105,11 +107,12 @@ const PopUpForm = () => {
         const [file] = acceptedFiles
         setImage(file)
     }, [])
+    console.log('eventRegisterObject');
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
 
     const postData = (e) => {
-        postEvent(register)
+        post('/events', register, eventData, setEventData)
         setOpenPopUpForm(false)
     }
 
@@ -117,9 +120,8 @@ const PopUpForm = () => {
         putEvent(register, eventRegisterObject.id)
         setOpenPopUpForm(false)
     }
-
     useEffect(() => {
-        setRegister({ ...register, mediaUrl: `./img/Sports_Img/${image?.name ?? './img/Sports_Img/Empty1.png'}` })
+        setRegister({ ...register, mediaUrl: `${image?.name ? `./img/Sports_Img/${image.name}` : eventRegisterObject.mediaUrl}` })
     }, [image])
 
     const close = () => {
@@ -140,7 +142,7 @@ const PopUpForm = () => {
 
                     <div
                         {...getRootProps()}
-                        className='w-[70%] h-[40vh] bg-white shadow-md flex justify-center items-center  overflow-auto border-8 px-2 border-dashed border-blue-500'>
+                        className='w-[70%] h-[40vh] bg-white shadow-md flex justify-center items-center  overflow-auto border-8 px-2 border-dashed border-slate-500'>
                         <input {...getInputProps()} />
                         {
                             isDragActive ?

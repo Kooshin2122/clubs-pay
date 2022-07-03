@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { BeatLoader } from 'react-spinners';
+import LoginForm from '../Components/LoginForm/LoginForm';
 
 const SecuritContext = createContext();
 
@@ -14,17 +16,15 @@ const SecurityProvider = ({ children }) => {
     }, [])
 
     if (loading) {
-        // Todo loading component
-        return null;
+        return (
+            <div className='w-[100%] bg-slate-100 h-screen flex justify-center items-center'>
+                <BeatLoader loading color='rgb(59 130 246)' />
+            </div>
+        );
     }
 
-    if (!user) {
-        // Todo assing page in to login page
-
-    }
-
-    return <SecuritContext.Provider value={{ setUser, user }}>
-        {page}
+    return <SecuritContext.Provider value={{ setUser, user, loading, setLoading }}>
+        {!user ? <LoginForm /> : children}
     </SecuritContext.Provider>
 }
 
@@ -32,4 +32,4 @@ export const useSecurity = () => {
     return useContext(SecuritContext)
 }
 
-export default SecurityProvider; s
+export default SecurityProvider;

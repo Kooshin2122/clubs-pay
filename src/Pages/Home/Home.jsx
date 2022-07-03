@@ -8,11 +8,11 @@ import PieChartPage from './Home-Components/Charts/PieChartPage';
 
 
 function Home() {
-    const { summary, getSummaryDataFromTheServer } = useCustomHook()
+    const { summary, setSummary, getData } = useCustomHook()
     const { events, clubs, students, totalPayment } = summary;
 
     useEffect(() => {
-        getSummaryDataFromTheServer()
+        getData('summery', setSummary)
     }, [])
 
     return (

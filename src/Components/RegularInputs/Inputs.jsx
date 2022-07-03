@@ -1,9 +1,10 @@
+import { TextField } from '@mui/material'
 import React from 'react'
 
-function Inputs({
+function TextFields({
     type = 'text',
-    placeHolder = 'placeHolder',
-    value = '',
+    label,
+    value,
     name = '',
     onchangeHandler = () => { },
     padding = 'py-2 px-4',
@@ -11,17 +12,22 @@ function Inputs({
     width = 'w-[100%]',
     border = '',
     fontSize = 'text-base',
-    minLength = 3,
-    maxLength
+    minLength = 1,
+    defaultValue,
+    maxLength,
+
 }) {
     return (
-        <input
+        <TextField
+            id="outlined-basic"
+            value={value}
+            variant="outlined"
+            autoFocus={true}
+            defaultValue={defaultValue}
             type={type}
             name={name}
-            placeholder={placeHolder}
+            label={label}
             onChange={onchangeHandler}
-            value={value}
-            min={3}
             required
             maxLength={maxLength}
             minLength={minLength}
@@ -31,4 +37,4 @@ function Inputs({
     )
 }
 
-export default Inputs
+export default TextFields

@@ -23,7 +23,10 @@ function MainView() {
                 </Route>
                 <Route path='clubs' >
                     <Route index={true} element={<Clubs />} />
-                    <Route path="clubRegister" element={<ClubRegister />} />
+                    <Route path='clubRegister' element={<ClubRegister />} />
+                    <Route path="clubRegister/:registerId">
+                        <Route index={true} element={<ClubRegister />} />
+                    </Route>
                     <Route path=":clubsId"  >
                         <Route index={true} element={<ClubLists />} />
                         <Route path="club/:clubinfoid" element={<ClubDetails />} />

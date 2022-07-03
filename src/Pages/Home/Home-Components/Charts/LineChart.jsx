@@ -3,13 +3,13 @@ import ReactApexChart from 'react-apexcharts';
 import { useCustomHook } from '../../../../ContextAPI';
 
 function LineChart() {
-    const { clubsRegistration, getClubsRegistrationDataFromTheServer } = useCustomHook()
+    const { clubsRegistrationPerYear, setClubsRegistrationPerYear, getData } = useCustomHook()
     useEffect(() => {
-        getClubsRegistrationDataFromTheServer()
+        getData('clubsRegistrationPerYear', setClubsRegistrationPerYear)
     }, [])
-
+    console.log('clubsRegistrationPerYear-------------------->', clubsRegistrationPerYear);
     const data = {
-        series: clubsRegistration,
+        series: clubsRegistrationPerYear,
         options: {
             chart: {
                 height: 670,

@@ -5,7 +5,7 @@
     "students": 123,
     "totalPayment": 1000
   },
-  "clubsRegistration": [
+  "clubsRegistrationPerYear": [
     {
       "name": "2022",
       "data": [
@@ -166,10 +166,16 @@
       "mediaType": "IMAGE"
     },
     {
-      "title": "New Events",
-      "description": "<p style=\"text-align:left;\">andwgdjsagdcwgcduywg dhwqgdyjqwgud</p>\n",
-      "mediaUrl": "./img/Sports_Img/bike.jpeg",
-      "id": "1M8k8KL"
+      "title": "Radio",
+      "description": "<p>maahgvchfecfej</p>\n",
+      "mediaUrl": "./img/Sports_Img/football.jpeg",
+      "id": "4EcpHog"
+    },
+    {
+      "title": "hxewhgcjwe",
+      "description": "<p>sgcewjgcjwsgxcejw</p>\n",
+      "mediaUrl": "./img/Sports_Img/Ninja.svg",
+      "id": "WeVOA5m"
     }
   ],
   "clubs": [
@@ -193,14 +199,14 @@
     },
     {
       "id": "4",
-      "title": "Runing race",
+      "title": "Running race",
       "mediaUrl": "./img/Sports_Img/Run.svg",
       "mediaType": "IMAGE"
     },
     {
-      "id": "5",
-      "title": "Cricked",
-      "mediaUrl": "./img/Sports_Img/Cricked.svg",
+      "id": "4",
+      "title": "Tennis",
+      "mediaUrl": "./img/Sports_Img/Tennis.svg",
       "mediaType": "IMAGE"
     },
     {
@@ -208,6 +214,50 @@
       "title": "Ninja",
       "mediaUrl": "./img/Sports_Img/Ninja.svg",
       "mediaType": "IMAGE"
+    }
+  ],
+  "clubLists": [
+    {
+      "id": "1",
+      "title": "Football",
+      "members": "10 clubs",
+      "totalPayment": "1000",
+      "DateCreated": "26/6/2002"
+    },
+    {
+      "id": "2",
+      "title": "Basket ball",
+      "members": "4 clubs",
+      "totalPayment": "800",
+      "DateCreated": "26/6/2002"
+    },
+    {
+      "id": "3",
+      "title": "Tennis",
+      "members": "6 clubs",
+      "totalPayment": "600",
+      "DateCreated": "26/6/2002"
+    },
+    {
+      "id": "4",
+      "title": "Golf",
+      "members": "2 clubs",
+      "totalPayment": "1200",
+      "DateCreated": "26/6/2002"
+    },
+    {
+      "id": "5",
+      "title": "Running race",
+      "members": "3 clubs",
+      "totalPayment": "300",
+      "DateCreated": "26/6/2002"
+    },
+    {
+      "title": "dwd",
+      "members": "dwqjhfqw",
+      "totalPayments": "dwqhfuwq",
+      "dateCreated": "2022-05-24",
+      "id": "97e0aNx"
     }
   ]
 }

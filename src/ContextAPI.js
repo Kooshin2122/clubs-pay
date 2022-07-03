@@ -11,49 +11,35 @@ function ContextAPI({ children }) {
     const [openPopUpForm, setOpenPopUpForm] = useState(false)
     const [register, setRegister] = useState({ title: '', description: 'description....', media: '../img/Sports_Img/empty.png' })
     const [visible, setVisible] = useState(false)
-
-    // Fetching /events data from the server
+    // EVENTS DATA IN EVENTS PAGE
     const [eventData, setEventData] = useState([])
-    const getEventDataFromTheServer = async () => {
-        const response = await apiRequest.get('/events')
+    // SUMMARY DATA IN HOME PAGE
+    const [summary, setSummary] = useState({ events: 0, clubs: 0, students: 0, totalPayment: 0 })
+    // LINE CHART DATA
+    const [clubsRegistrationPerYear, setClubsRegistrationPerYear] = useState([0])
+    // PIE CHART DATA
+    const [clubRegistaring, setClubRegistaring] = useState([0])
+    //  CLUBS DATA IN CLUBS PAGE
+    const [clubsData, setClubsData] = useState([])
+    const [clubLisData, setClubLisData] = useState()
+
+    // GET DATA METHOD
+    const getData = async (endPoint = '', setResponce = () => { }) => {
+        const response = await apiRequest.get(`${endPoint}`)
             .catch(error => console.log('error ayaa dhacay', error))
         if (response) {
-            setEventData(response.data)
+            setResponce(response.data)
             setLoading(true)
         }
     }
-
-    // Fetching /summery data from the server
-    const [summary, setSummary] = useState({ events: 0, clubs: 0, students: 0, totalPayment: 0 })
-    const getSummaryDataFromTheServer = async () => {
-        const response = await apiRequest.get('/summery')
-            .catch(error => console.log('error ayaa dhacay', error))
-        if (response)
-            setSummary(response.data);
+    // POST DATA METHOD
+    const post = async (endPoint, newData, oldData, setdata = () => { }) => {
+        const response = await apiRequest.post(`${endPoint}`, newData)
+        const { data } = response
+        setdata({ ...oldData, data })
     }
 
-    // Fetching /clubsRegistration/LineChart data from the server
-    const [clubsRegistration, setClubsRegistration] = useState([0])
-    const getClubsRegistrationDataFromTheServer = async () => {
-        const response = await apiRequest.get('/clubsRegistration')
-            .catch(error => console.log('error ayaa dhacay', error))
-        if (response)
-            setClubsRegistration(response.data);
-    }
-
-    // Fetching /clubRegistaring/PieChart data from the server
-    const [clubRegistaring, setClubRegistaring] = useState([0])
-    const getClubRegistaringDataFromTheServer = async () => {
-        const response = await apiRequest.get('/clubRegistaring')
-            .catch(error => console.log('error ayaa dhacay', error))
-        if (response)
-            setClubRegistaring(response.data);
-    }
-
-    const postEvent = async (event = {}) => {
-        const response = await apiRequest.post('/events', event)
-        setEventData({ ...eventData, response })
-    }
+    console.log('clubLisData', clubLisData);
 
     const putEvent = async (event = {}, eventId) => {
         const response = await apiRequest.put(`/events/${eventId}`, event)
@@ -69,14 +55,18 @@ function ContextAPI({ children }) {
         setEventData(newEventData)
     }
 
-    const [clubsData, setClubsData] = useState([])
-    const getClubsDataFromTheServer = async () => {
-        const response = await apiRequest.get('/clubs')
-            .catch(error => console.log('error ayaa dhacay', error))
-        if (response) {
-            setClubsData(response.data)
-            // setLoading(true)
-        }
+    const putClub = async (club = {}, clubId) => {
+        const response = await apiRequest.put(`/clubs/${clubId}`, club)
+        const { id } = response.data
+        setClubsData(clubsData.map(club => {
+            return id === clubId ? { ...response.data } : club
+        }))
+    }
+
+    const deleteMainClub = async (Id) => {
+        await apiRequest.delete(`/clubs/${Id}`)
+        const newClubsData = clubsData.filter(club => club.id !== Id)
+        setClubsData(newClubsData)
     }
 
     return (
@@ -84,21 +74,18 @@ function ContextAPI({ children }) {
             value={{
                 loading, setLoading,
                 eventData, setEventData,
-                getEventDataFromTheServer,
                 eventRegisterTitle, setEventRegisterTitle,
                 eventRegisterObject, setEventRegisterObject,
-                summary,
-                getSummaryDataFromTheServer,
-                clubsRegistration,
-                getClubsRegistrationDataFromTheServer,
-                clubRegistaring,
-                getClubRegistaringDataFromTheServer,
+                summary, setSummary,
+                clubsRegistrationPerYear, setClubsRegistrationPerYear,
+                clubRegistaring, setClubRegistaring,
                 openPopUpForm, setOpenPopUpForm,
                 register, setRegister,
                 visible, setVisible,
-                postEvent, putEvent, deleteEvent,
+                post, putEvent, deleteEvent, putClub,
                 clubsData, setClubsData,
-                getClubsDataFromTheServer
+                getData, deleteMainClub,
+                clubLisData, setClubLisData
             }}
         >
             { children}
@@ -110,3 +97,7 @@ export const useCustomHook = () => useContext(Context);
 
 export default ContextAPI
 
+// const postEvent = async (event = {}) => {
+//     const response = await apiRequest.post('/events', event)
+//     setEventData({ ...eventData, response })
+// }

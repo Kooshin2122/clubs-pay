@@ -27,12 +27,10 @@ const Td = ({
     value,
     style
 }) => {
-    // console.log(typeof value == 'string' ? 'haa' : 'maya');
     return (
         <td className={`${style} ${typeof value == 'object' ? 'w-[17%]' : ''} px-6 py-3 whitespace-nowrap bg-white text-left`}>
             {children}
             {value}
-            {console.log(typeof value)}
         </td>
     )
 }

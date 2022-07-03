@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player'
 import Table from '../../Components/Table/Table'
 
 function ClubDetails() {
-    const { clubId } = useParams();
+    const { clubId, clubinfoid } = useParams();
 
     const tHeadValues = ['ID', 'Name', 'Focault', 'Payment', 'joined at']
     const trowValues = [
@@ -22,7 +22,7 @@ function ClubDetails() {
             <div className='w-[95%] m-auto'>
                 <h1 className='text-xl flex justify-between font-bold mt-2 px-3 border-b-2 pb-2'>
                     <p>Club Details Page</p>
-                    <Link to={`/clubs`} className='flex'>
+                    <Link to={`/clubs/${clubinfoid}`} className='flex'>
                         back
                         <RiArrowGoBackLine className='text-2xl font-black ml-2' />
                     </Link>
